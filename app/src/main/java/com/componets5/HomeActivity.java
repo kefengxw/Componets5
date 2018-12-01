@@ -20,6 +20,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
@@ -125,6 +127,9 @@ public class HomeActivity extends AppCompatActivity
             unbindService(serviceConnection);
         } else if (id == R.id.nav_slideshow) {
 
+            startAnimation();
+
+
         } else if (id == R.id.nav_manage) {
             Intent intentF = new Intent(ctx, ForegroundService.class);
             startService(intentF);
@@ -169,5 +174,28 @@ public class HomeActivity extends AppCompatActivity
                 imageView.setImageBitmap(subBitmap);
             }
         }
+    }
+
+    private void startAnimation(){
+        Animation a1 = AnimationUtils.loadAnimation(ctx, R.anim.alphatest);
+        Animation a2 = AnimationUtils.loadAnimation(ctx, R.anim.rotatetest);
+        Animation a3 = AnimationUtils.loadAnimation(ctx, R.anim.scaletest);
+        Animation a4 = AnimationUtils.loadAnimation(ctx, R.anim.translatetest);
+
+
+        ImageView i1 = findViewById(R.id.imageView1);
+        ImageView i2 = findViewById(R.id.imageView2);
+        ImageView i3 = findViewById(R.id.imageView3);
+        ImageView i4 = findViewById(R.id.imageView4);
+
+        i1.setImageResource(R.drawable.ic_account_balance_black_24dp);
+        i2.setImageResource(R.drawable.ic_account_balance_black_24dp);
+        i3.setImageResource(R.drawable.ic_account_balance_black_24dp);
+        i4.setImageResource(R.drawable.ic_account_balance_black_24dp);
+
+        i1.startAnimation(a1);
+        i2.startAnimation(a2);
+        i3.startAnimation(a3);
+        i4.startAnimation(a4);
     }
 }

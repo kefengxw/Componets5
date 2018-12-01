@@ -4,6 +4,9 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.design.widget.FloatingActionButton;
@@ -17,11 +20,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+
+import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     Context ctx;
+    private ImageView imageView;
+    private Bitmap bitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,6 +130,9 @@ public class HomeActivity extends AppCompatActivity
             startService(intentF);
         } else if (id == R.id.nav_share) {
 
+            prepareSplitImage();
+            splitImage();
+
         } else if (id == R.id.nav_send) {
             Intent intentS = new Intent(ctx, MyService.class);
             stopService(intentS);
@@ -130,5 +141,33 @@ public class HomeActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void prepareSplitImage(){
+        imageView = findViewById(R.id.imageView);
+        bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_background_testing);
+
+
+    }
+
+    private void splitImage(){
+        ArrayList<Bitmap> subImageArray = new ArrayList<Bitmap>(3*3);
+        int subImageWidth = bitmap.getWidth()/3;
+        int subImageHeight = bitmap.getHeight()/3;
+
+        Bitmap subBitmap = null;
+
+        for (int i = 0; i<3; i++){
+            for (int j = 0; j<3; j++){
+                int x = j*subImageWidth;
+                int y = j*subImageHeight;
+
+                subBitmap = Bitmap.createBitmap(bitmap, x, y, subImageWidth, subImageHeight);
+
+                //BitmapDrawable btd = new BitmapDrawable(getResources(), subBitmap);
+
+                imageView.setImageBitmap(subBitmap);
+            }
+        }
     }
 }

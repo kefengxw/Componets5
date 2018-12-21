@@ -13,5 +13,7 @@ public class BootRestartReceiver extends BroadcastReceiver {
         // an Intent broadcast.
         Toast.makeText(context, "BootRestartReceiver", Toast.LENGTH_LONG).show();
         System.out.println("KeFeng BootRestartReceiver");
+
+        System.out.println("KeFeng BootRestartReceiver2");
     }
 }

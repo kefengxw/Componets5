@@ -1,9 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:showIn="@layout/activity_home">
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_1"
+        android:orderInCategory="103"
+        android:title="action_1"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_2"
+        android:orderInCategory="106"
+        android:title="action_2"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/app_bar_switch"
+        android:title="Switch-Test"
+        android:icon="@color/colorBlue"
+        android:tooltipText="test123"
+        android:orderInCategory="110"
+        android:visible="true"
+        app:actionLayout="@layout/switch_item"
+        app:showAsAction="never|withText" />
+
+    <item
+        android:id="@+id/action_3"
+        android:orderInCategory="96"
+        android:title="action_3"
+        app:showAsAction="never" >
+    </item>
+
+    <item
+        android:id="@+id/action_5"
+        android:orderInCategory="108"
+        android:title="action_5"
+        app:showAsAction="never">
+
+        <menu xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+
+            <item
+                android:id="@+id/action_11"
+                android:orderInCategory="108"
+                android:title="action_111"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/action_12"
+                android:orderInCategory="108"
+                android:title="action_12"
+                app:showAsAction="never" />
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/action_8"
+        android:orderInCategory="108"
+        android:title="action_8"
+        app:showAsAction="never">
+    </item>
 </menu>

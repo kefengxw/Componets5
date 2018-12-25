@@ -3,6 +3,7 @@ package com.componets5;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Patterns;
 import android.widget.Toast;
 
 public class BootRestartReceiver extends BroadcastReceiver {
@@ -15,5 +16,6 @@ public class BootRestartReceiver extends BroadcastReceiver {
         System.out.println("KeFeng BootRestartReceiver");
 
         System.out.println("KeFeng BootRestartReceiver2");
+
     }
 }

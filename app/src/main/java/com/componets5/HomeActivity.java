@@ -1,5 +1,6 @@
 package com.componets5;
 
+import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -7,10 +8,12 @@ import android.content.ServiceConnection;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.view.menu.MenuBuilder;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -24,6 +27,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity
@@ -75,9 +79,36 @@ public class HomeActivity extends AppCompatActivity
         }
     }
 
+//    @SuppressLint("RestrictedApi")
+//    @Override
+//    public boolean onPrepareOptionsMenu(Menu menu) {
+//        if (menu != null && menu instanceof MenuBuilder) {
+//            if (Build.VERSION.SDK_INT > 23) {
+//                MenuBuilder builder = (MenuBuilder) menu;
+//                builder.setOptionalIconsVisible(true);
+//            } else {
+//                try {
+//                    MenuBuilder builder = (MenuBuilder) menu;
+//                    Method m = builder.getClass().getDeclaredMethod("setOptionalIconsVisible", Boolean.TYPE);
+//                    m.setAccessible(true);
+//                    m.invoke(menu, true);
+//                } catch (NoSuchMethodException e) {
+//                    e.printStackTrace();
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }
+//        return super.onPrepareOptionsMenu(menu);
+//    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+//        MenuBuilder builder = (MenuBuilder) menu;
+//        if (Build.VERSION.SDK_INT > 23) {
+//            builder.setOptionalIconsVisible(true);
+//        }
         getMenuInflater().inflate(R.menu.home, menu);
         return true;
     }
